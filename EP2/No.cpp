@@ -1,8 +1,11 @@
 #include "No.h"
 
+const int No::TAMANHO_FILA = 5;
+
 No::No(int endereco) {
+
     this->endereco = endereco;
-    fila = new fila(TAMANHO_FILA);
+    fila = new Fila(No::TAMANHO_FILA);
 }
 
 No::~No() {

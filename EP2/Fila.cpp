@@ -11,7 +11,7 @@ Fila::~Fila() {
 }
 
 void Fila::enqueue(Datagrama* d) {
-    if ((inicio == fim + 1) || (inicio == 0 && fim = tamanho) throw new overflow_error("Overflow");
+    if ((inicio == fim + 1) || (inicio == 0 && fim == tamanho)) throw new overflow_error("Overflow");
     else {
         vetFila[fim] = d;
         if(fim == tamanho) fim = 0;
@@ -31,5 +31,7 @@ bool Fila::isEmpty() {
     return (inicio == fim); //condicao de fila cheia para a solucao adotada
 }
 
-void Fila::imprimir() {}
+void Fila::imprimir() {
+    //fazer impressoes para debugar
+}
 

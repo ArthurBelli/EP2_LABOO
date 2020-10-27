@@ -16,7 +16,7 @@ class No {
     virtual void receber(Datagrama* d);
 
     virtual void imprimir();
-    static const int TAMANHO_FILA = 5;
+    static const int TAMANHO_FILA;
  protected:
     int endereco;
     Fila* fila;
