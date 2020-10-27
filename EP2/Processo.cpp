@@ -1,6 +1,6 @@
 #include "Processo.h"
 
-Processo::ttlPadrao = 5;
+int Processo::ttlPadrao = 5;
 
 Processo::Processo(int endereco, int porta, Roteador* gateway) {
     this->endereco = endereco;
