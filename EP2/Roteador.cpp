@@ -10,12 +10,12 @@ Roteador::~Roteador() {
 
 void Roteador::processar() {
     try {
-        Datagrama* atual = new Datagrama(0, 0, 0, "");
+        Datagrama* atual = new Datagrama(0, 0, 0, new Segmento(0,0,""));
         atual = fila->dequeue();
         atual->processar();
         if (!atual->ativo()) delete atual;
         else {
-            if (atual->destino == endereco) delete atual;
+            if (atual->getDestino() == endereco) delete atual;
             else {
                 if (tabela->getDestino(atual->getDestino()) != NULL)
                     tabela->getDestino(atual->getDestino())->receber(atual);
