@@ -1,16 +1,26 @@
 #ifndef NAVEGADOR_H
 #define NAVEGADOR_H
+#include "Processo.h"
+#include <string>
 
 
-class Navegador
-{
-    public:
-        Navegador();
-        virtual ~Navegador();
+class Navegador: public Processo {
+ public:
+    Navegador(int endereco, int porta, Roteador* gateway);
+    virtual ~Navegador();
 
-    protected:
+    void receber(int origem, Segmento* mensagem);
+    virtual void abrir(int endereco, int porta);
+    virtual void abrir(int endereco);
 
-    private:
+    virtual string getConteudo();
+
+ private:
+    string conteudo;
+    int endereco;
+    int porta;
+    int requestEnd; //vai guardar o endereco para qual foi enviado o requestDat
+    Roteador* gateway;
 };
 
 #endif // NAVEGADOR_H
