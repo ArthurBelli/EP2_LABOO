@@ -32,7 +32,7 @@ No* Rede::getNo(int endereco) {
     return NULL;
 }
 
-list* Rede::getHospedeiros() {
+list<Hospedeiro*>* Rede::getHospedeiros() {
     if (hospedeiros->empty()) return NULL;
     else return hospedeiros;
 }
