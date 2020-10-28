@@ -1,24 +1,18 @@
-
 #include "Hospedeiro.h"
-#include "ServidorWeb.h"
-#include "Navegador.h"
-#include "Datagrama.h"
-#include <stdexcept>
-using namespace std;
+
 
 Hospedeiro::Hospedeiro(int endereco, Roteador* gateway) : No(endereco) {
     this->gateway = gateway;
     processos = new vector<Processo*>();
 }
 
-Hospedeiro::~Hospedeiro()
-{
-    vector<Processo*>::iterator i = processos->begin();
-    while (i != processos->end()) {
-        delete (*i);
-        i++;
+Hospedeiro::~Hospedeiro() {
+    while (!processos->empty()) {
+        Processo* atual = processos->back();
+        processos->pop_back();
+        delete atual;
     }
-    delete processos; //não fala que é pra destruir o vetor mas me parece prudente, qualquer coisa a gente pergunta
+    delete processos; //nao explicita se deve apagar a estrutura, podemos perguntar dps
 }
 
 void Hospedeiro::adicionarServidorWeb(int porta, string conteudo) {
@@ -26,7 +20,7 @@ void Hospedeiro::adicionarServidorWeb(int porta, string conteudo) {
     vector<Processo*>::iterator i = processos->begin();
     if (!processos->empty()) {
         if (this->getProcesso(porta) != NULL) {
-            throw logic_error("Porta já contem processo.");
+            throw new logic_error("Porta ja contem processo.");
             return;
         }
     }
@@ -38,7 +32,7 @@ void Hospedeiro::adicionarNavegador(int porta) {
     vector<Processo*>::iterator i = processos->begin();
     if (!processos->empty()) {
         if (this->getProcesso(porta) != NULL) {
-            throw logic_error("Porta já contem processo.");
+            throw new logic_error("Porta ja contem processo.");
             return;
         }
     }
@@ -55,8 +49,8 @@ void Hospedeiro::processar() {
             delete atual;
         } else delete atual;
 
-    } catch (underflow_error *e) {
-        cout << "\tFila vazia em " << this->getEndereco() << endl;
+    } catch (underflow_error* e) {
+        cout << "\tFila em "<< this->getEndereco() << " vazia" << endl;
         delete e;
     }
 }
