@@ -17,8 +17,11 @@ Rede::~Rede() {
 void Rede::adicionar(No* no) {
     list<No*>::iterator i = nos->begin();
     while (i != nos->end()) {
-        if ((*i) == no) throw new logic_error("No ja esta incluso na rede");
-        delete no; //diz apenas para nao incluir, mas parece prudente excluir
+        if ((*i) == no) {
+            throw new logic_error("No ja esta incluso na rede");
+            delete no; //diz apenas para nao incluir, mas parece prudente excluir
+        }
+        i++;
     }
     nos->push_back(no);
 }
