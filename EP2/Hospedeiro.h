@@ -5,7 +5,6 @@
 #include "Roteador.h"
 #include <vector>
 #include <string>
-
 using namespace std;
 
 class Hospedeiro : public No {
@@ -14,13 +13,13 @@ class Hospedeiro : public No {
     virtual ~Hospedeiro();
 
     virtual void adicionarServidorWeb(int porta, string conteudo);
-    virtual void adicionarNavegador(int porta);
+    virtual void adicionarNavegador(int porta); 
     virtual void processar();
 
     virtual Processo* getProcesso(int porta);
     virtual vector<Processo*>* getProcessos();
-
- private:
+    virtual void imprimir();
+    private:
     vector<Processo*>* processos;
     int endereco;
     Roteador* gateway;

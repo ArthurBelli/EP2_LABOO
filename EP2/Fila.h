@@ -16,7 +16,7 @@ class Fila {
 
     virtual void imprimir();
  private:
-    int inicio, fim, tamanho;
+    int inicio, fim, tamanho, quantidade;
     Datagrama** vetFila;
 };
 

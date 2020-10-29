@@ -1,8 +1,8 @@
+#ifndef SEGMENTO_H
+#define SEGMENTO_H
 #include <string>
 #include <iostream>
 using namespace std;
-#ifndef SEGMENTO_H
-#define SEGMENTO_H
 
 class Segmento
 {

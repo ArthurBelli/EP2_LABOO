@@ -16,7 +16,8 @@ PersistenciaDeRede::~PersistenciaDeRede()
 Rede* PersistenciaDeRede::carregar(string arquivo) {
     ifstream leitor;
     int i, j, quantRoteadores, quantHospedeiros, endereco, quantProcessos, endGateway, porta, endPadrao, quantMapeamentos, endAdj, destino;
-    string tipoProcesso, conteudo;
+    string tipoProcesso, conteudo, espacoFinal;
+    Roteador* gateway;
     leitor.open(arquivo);
     if (leitor.fail()) {
         throw new invalid_argument("Erro na abertura do arquivo, verifique se o nome esta correto.");
@@ -35,18 +36,16 @@ Rede* PersistenciaDeRede::carregar(string arquivo) {
                 delete e;
             }
         }
-        //depois os hospedeiros  
-        leitor >> quantHospedeiros; // aqui quantidade representa a quantidade de hospedeiros
+        //depois os hospedeiros
+        leitor >> quantHospedeiros; 
         for (i=0; i<quantHospedeiros; i++) {
             leitor >> endereco;
             leitor >> endGateway;
-            Roteador* gateway = new Roteador(0);
             gateway = dynamic_cast<Roteador*> (rede->getNo(endGateway));
             if (gateway == NULL) throw new invalid_argument("Arquivo formatado errado.");
             else {
                 try {
                     rede->adicionar(new Hospedeiro(endereco, gateway));
-                    delete gateway;
                 } catch (logic_error *e) {
                     cout << "Tentando adicionar Hospedeiro já adicionado." << endl;
                     delete e;
@@ -57,13 +56,13 @@ Rede* PersistenciaDeRede::carregar(string arquivo) {
                     leitor >> porta;
                     if (tipoProcesso == "n") {
                         Hospedeiro* h = dynamic_cast<Hospedeiro*>(rede->getNo(endereco));
-                        if (h==NULL) throw new invalid_argument("Hospedeiro invalido");
+                        if (h==NULL) throw new invalid_argument("Hospedeiro invalido_n");
                         else h->adicionarNavegador(porta);
                     }
                     else if (tipoProcesso == "w") {
                         leitor >> conteudo;
                         Hospedeiro* h = dynamic_cast<Hospedeiro*>(rede->getNo(endereco));
-                        if (h==NULL) throw new invalid_argument("Hospedeiro invalido");
+                        if (h==NULL) throw new invalid_argument("Hospedeiro invalido_w");
                         else h->adicionarServidorWeb(porta, conteudo);
                     }
                     else throw new invalid_argument("Arquivo formatado errado");
@@ -79,14 +78,15 @@ Rede* PersistenciaDeRede::carregar(string arquivo) {
             leitor >> quantMapeamentos;
             for (j=0; j<quantMapeamentos; j++) {
                 try {
-                    leitor >> endAdj;
                     leitor >> destino;
-                    r->getTabela()->mapear(endAdj, rede->getNo(destino));
+                    leitor >> endAdj;
+                    r->getTabela()->mapear(destino, rede->getNo(endAdj));
                 } catch (overflow_error* e) {
-                    cout << "Tabela cheia" << endl;                      
+                    cout << "Tabela cheia" << endl;
                   }
             }
         }
+        leitor >> espacoFinal;
     }
     if (!leitor.eof()) throw new invalid_argument("Erro de leitura");
     leitor.close();

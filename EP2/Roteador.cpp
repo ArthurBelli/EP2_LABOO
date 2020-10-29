@@ -31,3 +31,11 @@ void Roteador::processar() {
 TabelaDeRepasse* Roteador::getTabela() {
     return tabela;
 }
+
+void Roteador::imprimir() {
+    cout << "Sou o roteador" << this->getEndereco() <<  endl;
+    cout << "minha fila:" << endl;
+    fila->imprimir();
+    cout << "minha tabela:" << endl;
+    tabela->imprimir();
+}

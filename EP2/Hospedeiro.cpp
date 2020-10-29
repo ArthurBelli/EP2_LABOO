@@ -1,18 +1,24 @@
-#include "Hospedeiro.h"
 
+#include "Hospedeiro.h"
+#include "ServidorWeb.h"
+#include "Navegador.h"
+#include "Datagrama.h"
+#include <stdexcept>
+using namespace std;
 
 Hospedeiro::Hospedeiro(int endereco, Roteador* gateway) : No(endereco) {
     this->gateway = gateway;
     processos = new vector<Processo*>();
 }
 
-Hospedeiro::~Hospedeiro() {
-    while (!processos->empty()) {
-        Processo* atual = processos->back();
-        processos->pop_back();
-        delete atual;
+Hospedeiro::~Hospedeiro()
+{
+    vector<Processo*>::iterator i = processos->begin();
+    while (i != processos->end()) {
+        delete (*i);
+        i++;
     }
-    delete processos; //nao explicita se deve apagar a estrutura, podemos perguntar dps
+    delete processos; //não fala que é pra destruir o vetor mas me parece prudente, qualquer coisa a gente pergunta
 }
 
 void Hospedeiro::adicionarServidorWeb(int porta, string conteudo) {
@@ -20,7 +26,7 @@ void Hospedeiro::adicionarServidorWeb(int porta, string conteudo) {
     vector<Processo*>::iterator i = processos->begin();
     if (!processos->empty()) {
         if (this->getProcesso(porta) != NULL) {
-            throw new logic_error("Porta ja contem processo.");
+            throw logic_error("Porta já contem processo.");
             return;
         }
     }
@@ -32,7 +38,7 @@ void Hospedeiro::adicionarNavegador(int porta) {
     vector<Processo*>::iterator i = processos->begin();
     if (!processos->empty()) {
         if (this->getProcesso(porta) != NULL) {
-            throw new logic_error("Porta ja contem processo.");
+            throw logic_error("Porta já contem processo.");
             return;
         }
     }
@@ -49,8 +55,8 @@ void Hospedeiro::processar() {
             delete atual;
         } else delete atual;
 
-    } catch (underflow_error* e) {
-        cout << "\tFila em "<< this->getEndereco() << " vazia" << endl;
+    } catch (underflow_error *e) {
+        cout << "\tFila vazia em " << this->getEndereco() << endl;
         delete e;
     }
 }
@@ -66,5 +72,16 @@ Processo* Hospedeiro::getProcesso(int porta) {
 }
 
 vector<Processo*>* Hospedeiro::getProcessos() {
-    return processos;
+    if (processos->empty()) return NULL;
+    else return processos;
+}
+
+void Hospedeiro::imprimir() {
+    cout << "Sou o hospedeiro " << this->getEndereco() << endl;
+    cout << "meus processos: " << endl;
+    vector<Processo*>::iterator i = processos->begin();
+    while (i != processos->end()) {
+        cout << (*i)->getPorta() << endl;
+        i++;
+    }
 }

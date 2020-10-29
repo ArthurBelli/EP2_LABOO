@@ -24,6 +24,10 @@ void Rede::adicionar(No* no) {
         i++;
     }
     nos->push_back(no);
+    Hospedeiro* h = dynamic_cast<Hospedeiro*> (no);
+    if (h != NULL) { //verifica se o no eh hospedeiro, se for da pra converter, se não for retorna null
+        hospedeiros->push_back(h);
+    }
 }
 
 No* Rede::getNo(int endereco) {
@@ -49,5 +53,17 @@ void Rede::passarTempo() {
 }
 
 void Rede::imprimir() {
+    cout << "nos: " << endl;
+    list<No*>::iterator i = nos->begin();
+    while (i != nos->end()) {
+        cout << (*i)->getEndereco() << endl;
+        i++;
+    }
+    cout << "hospedeiros: " << endl;
+    list<Hospedeiro*>::iterator j = hospedeiros->begin();
+    while (j != hospedeiros->end()) {
+        cout << (*j)->getEndereco() << endl;
+        j++;
+    }
 
 }

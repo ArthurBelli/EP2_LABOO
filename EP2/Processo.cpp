@@ -19,11 +19,11 @@ int Processo::getPorta() {
 }
 
 void Processo::setTtlPadrao(int padrao) {
-    Processo::ttlPadrao = padrao;
+    ttlPadrao = padrao;
 }
 
 int Processo::getTtlPadrao() {
-    return Processo::ttlPadrao;
+    return ttlPadrao;
 }
 
 void Processo::imprimir() {

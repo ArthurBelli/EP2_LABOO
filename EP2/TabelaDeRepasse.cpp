@@ -67,5 +67,10 @@ No* TabelaDeRepasse::getDestino(int endereco) {
 }
 
 void TabelaDeRepasse::imprimir() {
-    cout << "Sou uma tabela" << endl;
+    cout << "Os adjascentes sao: " << endl;
+    for (int i=0; i<this->getQuantidadeDeAdjacentes(); i++) {
+        cout << this->getAdjacentes()[i]->getEndereco() << endl;
+    }
+    cout << "O padrao e: " << endl;
+    cout << noPadrao->getEndereco() << endl;
 }

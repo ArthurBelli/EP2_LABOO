@@ -12,6 +12,7 @@ class Roteador: public No {
 
     void processar();
     virtual TabelaDeRepasse* getTabela();
+    virtual void imprimir();
 
  private:
     TabelaDeRepasse* tabela;
