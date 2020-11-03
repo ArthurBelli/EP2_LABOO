@@ -17,51 +17,118 @@
 
 using namespace std;
 
-int main()
-{
-    Rede* rede = new Rede();
-    PersistenciaDeRede* p1 = new PersistenciaDeRede();
+void Menu0(int &opcao);
+void Menu1(Rede* rede, int &opcao);
+void Menu3(Rede* rede, int &opcao);
+
+int main() {
+    int opcao;
+    string arquivo;
+    PersistenciaDeRede* persistencia = new PersistenciaDeRede;
+    Rede* rede = new Rede;
+    cout << "Digite o nome do arquivo: ";
+    cin >> arquivo;
     try {
-        rede = p1->carregar("rede1.txt");
-        rede->imprimir();
-        Hospedeiro* h5 = dynamic_cast<Hospedeiro*>(rede->getNo(5));
-        ServidorWeb* w1 = dynamic_cast<ServidorWeb*>(h5->getProcesso(1005));
-        w1->imprimir();
+        rede = persistencia->carregar(arquivo);
     } catch (invalid_argument* e) {
-        cout << e->what() << endl;
+        cout << "Nome de arquivo invalido." << endl;
+        opcao = 4;
         delete e;
     }
-    /*Rede* rede = new Rede();
-    Segmento* s1 = new Segmento(1,1000,"s1");
-    Segmento* s2 = new Segmento(2,2000,"s2");
-    Segmento* s3 = new Segmento(3,3000,"s3");
-    Segmento* s4 = new Segmento(4,4000,"s4");
-    Datagrama* d1 = new Datagrama(1,5,5,s1);
-    Datagrama* d2 = new Datagrama(1,4,5,s2);
-    Datagrama* d3 = new Datagrama(2,3,5,s3);
-    Datagrama* d4 = new Datagrama(2,3,5,s4);
-    Roteador* r1 = new Roteador(1);
-    Roteador* r2 = new Roteador(2);
-    Hospedeiro* h3 = new Hospedeiro(3, r1);
-    Roteador* r4 = new Roteador(4);
-    Hospedeiro* h5 = new Hospedeiro(5, r2);
-    TabelaDeRepasse* t1 = r1->getTabela();
-    Fila* f = r1->getFila();
-    f->enqueue(d1);
-    f->imprimir();
-    cout << endl;
-    f->enqueue(d2);
-    f->imprimir();
-    cout << endl;
-    f->enqueue(d3);
-    f->imprimir();
-    cout << endl;
-    f->imprimir();
-    cout << endl;
-    f->dequeue();
-    f->imprimir();
-    cout << endl;
-    f->enqueue(d4);
-    f->imprimir();*/
+
+    while (opcao != 4) {
+        if (opcao == 0) Menu0(opcao);
+        else if (opcao == 1) Menu1(rede, opcao);
+        else if (opcao == 3) Menu3(rede, opcao); 
+    }
     return 0;
+}
+
+void Menu0(int &opcao) {
+    cout << "Simulador de Rede" << endl << "---" << endl << "1) Usar um navegador" << endl
+    << "2) Passar tempo" << endl << "3) Alterar TTL" << endl << "4) Sair" << endl << "Esolha uma opcao: ";
+    cin >> opcao;
+    cout << endl;
+}
+
+void Menu1(Rede* rede, int &opcao) {
+    int endHosp, portaNav, endWeb, portaWeb; 
+    bool temEndereco = false, temPorta = false;
+    list<Hospedeiro*>* hospedeiros = new list<Hospedeiro*>();
+    vector<Processo*>* processos = new vector<Processo*>();
+    hospedeiros = rede->getHospedeiros();
+    list<Hospedeiro*>::iterator i = hospedeiros->begin();
+    vector<Processo*>::iterator j;
+    Hospedeiro* hospEscolhido;
+    Navegador* n;
+    ServidorWeb* s;
+    while (i != hospedeiros->end()) {
+        cout << "Hospedeiro " << (*i)->getEndereco() << endl;
+        processos = (*i)->getProcessos();
+        j = processos->begin();
+        while (j != processos->end()) {
+            n = dynamic_cast<Navegador*>(*j);
+            if (n != NULL) {
+                cout << "\tNavegador " << n->getPorta() << endl;
+            }
+            else {
+                s = dynamic_cast<ServidorWeb*>(*j);
+                cout << "\tServidor Web " << s->getPorta() << endl;
+            }
+            j++;
+        }
+        i++;
+    }
+    cout << endl;
+    while(!temEndereco) {
+        cout << "Digite o endereco do hospedeiro: ";
+        cin >> endHosp;
+        i = hospedeiros->begin();
+        while (i != hospedeiros->end()) { //verificar se tem esse endereco de hospedeiro
+            if ((*i)->getEndereco() == endHosp) { //o pdf n especifica se deveria verificar se existe um navegador nesse hospedeiro mas como isso daria trabalho eu n pus. Depois a gente poe qualquer coisa
+                temEndereco = true;
+                hospEscolhido = (*i);
+            }
+            i++;
+        }
+        if (!temEndereco) cout << "Endereco invalido" << endl;
+    }
+    processos = hospEscolhido->getProcessos();
+    while(!temPorta) {
+        cout << "Digite a porta do navegador: ";
+        cin >> portaNav;
+        j = processos->begin();
+        while (j != processos->end()) { //verificar se tem essa porta nos processos
+            if ((*j)->getPorta() == portaNav && dynamic_cast<Navegador*>((*j)) != NULL) temPorta = true;
+            j++;
+        }
+        if (!temPorta) cout << "Porta invalida" << endl;
+    }
+    cout << "Abrir pagina no endereco: ";
+    cin >> endWeb; //pode ser que endWeb nao seja o melhor nome, muda se precisar
+    cout << "Porta do Servidor Web: ";
+    cin >> portaWeb;
+    //fazer alguma coisa
+}
+
+void Menu3(Rede* rede, int &opcao) {
+    int novoPadrao;
+    list<Hospedeiro*>* hospedeiros = new list<Hospedeiro*>();
+    vector<Processo*>* processos = new vector<Processo*>();
+    hospedeiros = rede->getHospedeiros();
+    list<Hospedeiro*>::iterator i = hospedeiros->begin();
+    vector<Processo*>::iterator j;
+    cout << "TTL atual: " << hospedeiros->front()->getProcessos()->front()->getTtlPadrao() << endl; //lol
+    cout << "Novo TTL: ";
+    cin >> novoPadrao;
+    while (i != hospedeiros->end()) {
+        processos = (*i)->getProcessos();
+        j = processos->begin();
+        while (j != processos->end()) {
+            (*j)->setTtlPadrao(novoPadrao);
+            j++;
+        }
+        i++;
+    }
+    opcao = 0;
 }
