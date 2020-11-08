@@ -10,8 +10,10 @@ Roteador::~Roteador() {
 
 void Roteador::processar() {
     try {
-        Datagrama* atual = new Datagrama(0, 0, 0, new Segmento(0,0,""));
+        Segmento* temp = new Segmento(0, 0, "");
+        Datagrama* atual = new Datagrama(0, 0, 0, temp);
         atual = fila->dequeue();
+        delete temp;
         atual->processar();
         if (!atual->ativo()) delete atual;
         else {

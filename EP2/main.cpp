@@ -19,13 +19,15 @@ using namespace std;
 
 void Menu0(int &opcao);
 void Menu1(Rede* rede, int &opcao);
+void Menu2(Rede* rede, int &tempo);
 void Menu3(Rede* rede, int &opcao);
 
 int main() {
-    int opcao;
+    int opcao = 0;
+    int tempo = 0;
     string arquivo;
-    PersistenciaDeRede* persistencia = new PersistenciaDeRede;
-    Rede* rede = new Rede;
+    PersistenciaDeRede* persistencia = new PersistenciaDeRede();
+    Rede* rede = new Rede();
     cout << "Digite o nome do arquivo: ";
     cin >> arquivo;
     try {
@@ -39,7 +41,8 @@ int main() {
     while (opcao != 4) {
         if (opcao == 0) Menu0(opcao);
         else if (opcao == 1) Menu1(rede, opcao);
-        else if (opcao == 3) Menu3(rede, opcao); 
+        else if (opcao == 2) Menu2(rede, tempo);
+        else if (opcao == 3) Menu3(rede, opcao);
     }
     return 0;
 }
@@ -52,7 +55,7 @@ void Menu0(int &opcao) {
 }
 
 void Menu1(Rede* rede, int &opcao) {
-    int endHosp, portaNav, endWeb, portaWeb; 
+    int endHosp, portaNav, endWeb, portaWeb;
     bool temEndereco = false, temPorta = false;
     list<Hospedeiro*>* hospedeiros = new list<Hospedeiro*>();
     vector<Processo*>* processos = new vector<Processo*>();
@@ -109,6 +112,16 @@ void Menu1(Rede* rede, int &opcao) {
     cout << "Porta do Servidor Web: ";
     cin >> portaWeb;
     //fazer alguma coisa
+}
+
+void Menu2(Rede* rede, int &tempo) {
+    cout << "Quantidade de tempo: ";
+    cin >> tempo;
+    cout << endl;
+    for (int i = 1; i <= tempo; i++) {
+        cout << "Instante: " << i << endl;
+        rede->passarTempo();
+    }
 }
 
 void Menu3(Rede* rede, int &opcao) {
