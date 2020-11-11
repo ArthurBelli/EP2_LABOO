@@ -1,6 +1,9 @@
 #include "Navegador.h"
 
 Navegador::Navegador(int endereco, int porta, Roteador* gateway): Processo(endereco, porta, gateway) {
+    this->endereco = endereco;
+    this->porta = porta;
+    this->gateway = gateway;
     conteudo = ""; //inicializacao das variaveis com valores neutros
     requestEnd = -1;
 }
