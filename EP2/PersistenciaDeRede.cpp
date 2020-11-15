@@ -37,7 +37,7 @@ Rede* PersistenciaDeRede::carregar(string arquivo) {
         for (i = 0; i < quantHospedeiros; i++) {
             leitor >> endereco;
             leitor >> endGateway;
-            gateway = dynamic_cast<Roteador*> (rede->getNo(endGateway));
+            gateway = dynamic_cast<Roteador*>(rede->getNo(endGateway));
             if (gateway == NULL) throw new invalid_argument("Arquivo formatado errado.");
             else {
                 try {

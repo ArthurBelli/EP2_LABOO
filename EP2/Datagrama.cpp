@@ -36,7 +36,7 @@ bool Datagrama::ativo() {
 }
 
 void Datagrama::imprimir() {
-    cout << "Origem: " << getOrigem() << ":" << getDado()->getPortaDeOrigem()
-    <<", Destino: " << getDestino() << ":" << getDado()->getPortaDeDestino()
-    << ", TTL: " << getTtl()  << ", " << getDado()->getDado() << endl;
+    cout << "Origem: " << this->getOrigem() << ":" << this->getDado()->getPortaDeOrigem()
+    <<", Destino: " << this->getDestino() << ":" << this->getDado()->getPortaDeDestino()
+    << ", TTL: " << this->getTtl()  << ", " << this->getDado()->getDado() << endl;
 }

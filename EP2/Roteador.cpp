@@ -13,7 +13,6 @@ void Roteador::processar() {
         Segmento* temp = new Segmento(0, 0, "");
         Datagrama* atual = new Datagrama(0, 0, 0, temp);
         atual = fila->dequeue();
-        delete temp;
         atual->processar();
         cout << "Roteador " << this->getEndereco() << endl;
         if (!atual->ativo()) {

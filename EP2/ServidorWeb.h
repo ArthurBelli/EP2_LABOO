@@ -13,9 +13,6 @@ class ServidorWeb: public Processo {
     void receber(int origem, Segmento* mensagem);
 
  private:
-    int endereco;
-    int porta;
-    Roteador* gateway;
     string conteudo;
 };
 

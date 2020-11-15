@@ -16,7 +16,6 @@ class Roteador: public No {
 
  private:
     TabelaDeRepasse* tabela;
-    int endereco;
 };
 
 #endif // ROTEADOR_H

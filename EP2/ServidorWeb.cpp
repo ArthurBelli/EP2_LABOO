@@ -12,7 +12,7 @@ ServidorWeb::~ServidorWeb() {}
 
 void ServidorWeb::receber(int origem, Segmento* mensagem) {
     if (mensagem->getDado() == "GET") {
-        Segmento* responseSeg = new Segmento(this->porta, origem, conteudo);
+        Segmento* responseSeg = new Segmento(this->porta, mensagem->getPortaDeOrigem(), conteudo);
         Datagrama* responseDat = new Datagrama(this->endereco, origem, getTtlPadrao(), responseSeg);
         gateway->receber(responseDat);
         cout << "ServidorWeb " << getEndereco() << endl;

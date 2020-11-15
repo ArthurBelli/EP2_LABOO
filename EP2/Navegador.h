@@ -17,10 +17,7 @@ class Navegador: public Processo {
 
  private:
     string conteudo;
-    int endereco;
-    int porta;
     int requestEnd; //vai guardar o endereco para qual foi enviado o requestDat
-    Roteador* gateway;
 };
 
 #endif // NAVEGADOR_H

@@ -242,3 +242,118 @@
 	"ServidorWeb.h"
 	"TabelaDeRepasse.h"
 
+1605473615 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\datagrama.cpp
+	"Datagrama.h"
+
+1605469006 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\datagrama.h
+	"Segmento.h"
+
+1605469006 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\segmento.h
+	<string>
+	<iostream>
+
+1605469006 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\fila.cpp
+	"Fila.h"
+
+1605469006 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\fila.h
+	"Datagrama.h"
+	<stdexcept>
+
+1605474687 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\hospedeiro.cpp
+	"Hospedeiro.h"
+
+1605475291 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\hospedeiro.h
+	"No.h"
+	"Processo.h"
+	"Roteador.h"
+	"Hospedeiro.h"
+	"ServidorWeb.h"
+	"Navegador.h"
+	"Datagrama.h"
+	<stdexcept>
+	<vector>
+	<string>
+
+1605475255 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\no.h
+	"Fila.h"
+	"Datagrama.h"
+	<stdexcept>
+
+1605469006 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\processo.h
+	"Roteador.h"
+	"Segmento.h"
+
+1605475286 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\roteador.h
+	"TabelaDeRepasse.h"
+	"No.h"
+
+1605469006 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\tabeladerepasse.h
+	"No.h"
+	<iostream>
+	<stdexcept>
+
+1605475238 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\servidorweb.h
+	"Processo.h"
+	<string>
+
+1605475217 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\navegador.h
+	"Processo.h"
+	<string>
+
+1605472958 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\main.cpp
+	<iostream>
+	<string>
+	<stdexcept>
+	"Datagrama.h"
+	"Fila.h"
+	"Hospedeiro.h"
+	"Navegador.h"
+	"No.h"
+	"PersistenciaDeRede.h"
+	"Processo.h"
+	"Rede.h"
+	"Roteador.h"
+	"Segmento.h"
+	"ServidorWeb.h"
+	"TabelaDeRepasse.h"
+
+1605469006 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\persistenciaderede.h
+	"Rede.h"
+	"Roteador.h"
+	"Hospedeiro.h"
+	<fstream>
+	<string>
+
+1605469006 c:\users\caiok\documents\codigos\c++\ep2\ep2v2\rede.h
+	<list>
+	<stdexcept>
+	"Hospedeiro.h"
+	"No.h"
+
+1605475327 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\navegador.cpp
+	"Navegador.h"
+
+1605469006 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\no.cpp
+	"No.h"
+
+1605474531 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\persistenciaderede.cpp
+	"PersistenciaDeRede.h"
+
+1605474413 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\processo.cpp
+	"Processo.h"
+
+1605469006 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\rede.cpp
+	"Rede.h"
+
+1605469006 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\segmento.cpp
+	"Segmento.h"
+
+1605475967 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\servidorweb.cpp
+	"ServidorWeb.h"
+
+1605469006 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\tabeladerepasse.cpp
+	"TabelaDeRepasse.h"
+
+1605473753 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\roteador.cpp
+	"Roteador.h"
+

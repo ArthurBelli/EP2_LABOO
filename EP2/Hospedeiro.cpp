@@ -1,6 +1,6 @@
 #include "Hospedeiro.h"
 
-Hospedeiro::Hospedeiro(int endereco, Roteador* gateway) : No(endereco) {
+Hospedeiro::Hospedeiro(int endereco, Roteador* gateway): No(endereco) {
     this->gateway = gateway;
     processos = new vector<Processo*>();
 }
@@ -26,7 +26,7 @@ void Hospedeiro::adicionarServidorWeb(int porta, string conteudo) {
 }
 
 void Hospedeiro::adicionarNavegador(int porta) {
-    Navegador* n = new Navegador(endereco, porta, gateway);
+    Navegador* n = new Navegador(this->endereco, porta, this->gateway);
     if (!processos->empty()) {
         if (this->getProcesso(porta)) {
             throw logic_error("Porta já contem processo.");
@@ -41,7 +41,7 @@ void Hospedeiro::processar() {
         Datagrama* atual = new Datagrama(0, 0, 0, new Segmento(0,0,""));
         atual = fila->dequeue();
         Processo* destino = this->getProcesso(atual->getDado()->getPortaDeDestino());
-        cout << "Hospedeiro " << this->getEndereco()<< endl;
+        cout << "Hospedeiro " << this->getEndereco() << endl;
         if (destino != NULL) {
             destino->receber(atual->getOrigem(), atual->getDado());
         } else {

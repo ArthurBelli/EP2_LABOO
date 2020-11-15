@@ -1,9 +1,6 @@
 #include "Navegador.h"
 
 Navegador::Navegador(int endereco, int porta, Roteador* gateway): Processo(endereco, porta, gateway) {
-    this->endereco = endereco;
-    this->porta = porta;
-    this->gateway = gateway;
     conteudo = ""; //inicializacao das variaveis com valores neutros
     requestEnd = -1;
 }
@@ -11,7 +8,7 @@ Navegador::Navegador(int endereco, int porta, Roteador* gateway): Processo(ender
 Navegador::~Navegador() {}
 
 void Navegador::receber(int origem, Segmento* mensagem) {
-    cout << "Navegador " << getPorta() << endl;
+    cout << "Navegador " << this->getPorta() << endl;
     if (origem == requestEnd) {
         conteudo = mensagem->getDado();
         cout << "\tRecebido de " << origem << ":" << mensagem->getPortaDeOrigem()
@@ -21,13 +18,12 @@ void Navegador::receber(int origem, Segmento* mensagem) {
         cout << "\tMensagem ignorada " << origem << ":" << mensagem->getPortaDeOrigem()
         << ": " << mensagem->getDado() << endl;
     }
-    delete mensagem;
 }
 
 void Navegador::abrir(int endereco, int porta) {
     requestEnd = endereco; //agora o navegador sabe de que endereco ele esta esperando a resposta
     Segmento* requestSeg = new Segmento(this->porta, porta, "GET");
-    Datagrama* requestDat = new Datagrama(this->endereco, endereco, getTtlPadrao(), requestSeg);
+    Datagrama* requestDat = new Datagrama(this->endereco, endereco, this->getTtlPadrao(), requestSeg);
     conteudo = "";
     gateway->receber(requestDat);
 }
@@ -35,7 +31,7 @@ void Navegador::abrir(int endereco, int porta) {
 void Navegador::abrir(int endereco) {
     requestEnd = endereco;
     Segmento* requestSeg = new Segmento(this->porta, 80, "GET");
-    Datagrama* requestDat = new Datagrama(this->endereco, endereco, getTtlPadrao(), requestSeg);
+    Datagrama* requestDat = new Datagrama(this->endereco, endereco, this->getTtlPadrao(), requestSeg);
     conteudo = "";
     gateway->receber(requestDat);
 }

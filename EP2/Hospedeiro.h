@@ -26,9 +26,8 @@ class Hospedeiro : public No {
     virtual vector<Processo*>* getProcessos();
     virtual void imprimir();
 
-    private:
+ private:
     vector<Processo*>* processos;
-    int endereco;
     Roteador* gateway;
 };
 
