@@ -44,8 +44,8 @@
 		<Unit filename="Navegador.h" />
 		<Unit filename="No.cpp" />
 		<Unit filename="No.h" />
-		<Unit filename="PersistenciaDaRede.cpp" />
-		<Unit filename="PersistenciaDaRede.h" />
+		<Unit filename="PersistenciaDeRede.cpp" />
+		<Unit filename="PersistenciaDeRede.h" />
 		<Unit filename="Processo.cpp" />
 		<Unit filename="Processo.h" />
 		<Unit filename="Rede.cpp" />

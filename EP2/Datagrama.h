@@ -1,16 +1,25 @@
 #ifndef DATAGRAMA_H
 #define DATAGRAMA_H
+#include "Segmento.h"
 
 
 class Datagrama
 {
-    public:
-        Datagrama();
-        virtual ~Datagrama();
+ public:
+   Datagrama(int origem, int destino, int ttl, Segmento* dado);
+   virtual ~Datagrama();
+   virtual int getOrigem();
+   virtual int getDestino();
+   virtual int getTtl();
+   virtual Segmento* getDado(); 
 
-    protected:
+   virtual void processar();
+   virtual bool ativo(); 
 
-    private:
+   virtual void imprimir();
+ private:
+   int origem, destino, ttl;
+   Segmento* dado;
 };
 
 #endif // DATAGRAMA_H
