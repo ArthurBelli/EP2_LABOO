@@ -2,18 +2,18 @@
 1603756179 source:c:\users\caiok\documents\codigos\c++\ep2\datagrama.cpp
 	"Datagrama.h"
 
-1603900572 .h"
+1605475327 .h"
 
 1603758063 c:\users\caiok\documents\codigos\c++\ep2\datagrama.h
 	"Segmento.h"
 
-1603756222 h"
+1605473753 h"
 
 1603758075 c:\users\caiok\documents\codigos\c++\ep2\segmento.h
 	<string>
 	<iostream>
 
-1604004731 
+1605469006 
 
 1604000979 source:c:\users\caiok\documents\codigos\c++\ep2\fila.cpp
 	"Fila.h"
@@ -22,7 +22,7 @@
 	"Datagrama.h"
 	<stdexcept>
 
-1603922440 >
+1605469006 >
 
 1604004044 source:c:\users\caiok\documents\codigos\c++\ep2\hospedeiro.cpp
 	"Hospedeiro.h"
@@ -51,7 +51,7 @@
 	"TabelaDeRepasse.h"
 	"No.h"
 
-1604004767 epasse.h"
+1605469006 epasse.h"
 
 1603821263 c:\users\caiok\documents\codigos\c++\ep2\tabeladerepasse.h
 	"No.h"
@@ -82,7 +82,7 @@
 	"Hospedeiro.h"
 	"No.h"
 
-1603917556 o.h"
+1605469006 o.h"
 
 1604004126 source:c:\users\caiok\documents\codigos\c++\ep2\roteador.cpp
 	"Roteador.h"
@@ -93,7 +93,7 @@
 1603900634 source:c:\users\caiok\documents\codigos\c++\ep2\servidorweb.cpp
 	"ServidorWeb.h"
 
-1603900634 eb.h"
+1605475967 eb.h"
 
 1603922440 source:c:\users\caiok\documents\codigos\c++\ep2\tabeladerepasse.cpp
 	"TabelaDeRepasse.h"
@@ -193,6 +193,8 @@
 
 1605467950 source:/home/arthur/Desktop/poli/EP2/PersistenciaDeRede.cpp
 	"PersistenciaDeRede.h"
+
+1605474531 ciaDeRede.h"
 
 1605296058 /home/arthur/Desktop/poli/EP2/PersistenciaDeRede.h
 	"Rede.h"
@@ -356,4 +358,119 @@
 
 1605473753 source:c:\users\caiok\documents\codigos\c++\ep2\ep2v2\roteador.cpp
 	"Roteador.h"
+
+1605483922 source:/home/arthur/Desktop/poli/EP2/Datagrama.cpp
+	"Datagrama.h"
+
+1605483922 /home/arthur/Desktop/poli/EP2/Datagrama.h
+	"Segmento.h"
+
+1605483922 /home/arthur/Desktop/poli/EP2/Segmento.h
+	<string>
+	<iostream>
+
+1605483922 source:/home/arthur/Desktop/poli/EP2/Fila.cpp
+	"Fila.h"
+
+1605483922 /home/arthur/Desktop/poli/EP2/Fila.h
+	"Datagrama.h"
+	<stdexcept>
+
+1605628073 source:/home/arthur/Desktop/poli/EP2/Hospedeiro.cpp
+	"Hospedeiro.h"
+
+1605483922 /home/arthur/Desktop/poli/EP2/Hospedeiro.h
+	"No.h"
+	"Processo.h"
+	"Roteador.h"
+	"Hospedeiro.h"
+	"ServidorWeb.h"
+	"Navegador.h"
+	"Datagrama.h"
+	<stdexcept>
+	<vector>
+	<string>
+
+1605486160 /home/arthur/Desktop/poli/EP2/No.h
+	"Fila.h"
+	"Datagrama.h"
+	<stdexcept>
+
+1605483922 /home/arthur/Desktop/poli/EP2/Processo.h
+	"Roteador.h"
+	"Segmento.h"
+
+1605486147 /home/arthur/Desktop/poli/EP2/Roteador.h
+	"TabelaDeRepasse.h"
+	"No.h"
+
+1605483922 /home/arthur/Desktop/poli/EP2/TabelaDeRepasse.h
+	"No.h"
+	<iostream>
+	<stdexcept>
+
+1605483922 /home/arthur/Desktop/poli/EP2/ServidorWeb.h
+	"Processo.h"
+	<string>
+
+1605483922 /home/arthur/Desktop/poli/EP2/Navegador.h
+	"Processo.h"
+	<string>
+
+1605628201 source:/home/arthur/Desktop/poli/EP2/main.cpp
+	<iostream>
+	<string>
+	<stdexcept>
+	"Datagrama.h"
+	"Fila.h"
+	"Hospedeiro.h"
+	"Navegador.h"
+	"No.h"
+	"PersistenciaDeRede.h"
+	"Processo.h"
+	"Rede.h"
+	"Roteador.h"
+	"Segmento.h"
+	"ServidorWeb.h"
+	"TabelaDeRepasse.h"
+
+1605483922 /home/arthur/Desktop/poli/EP2/PersistenciaDeRede.h
+	"Rede.h"
+	"Roteador.h"
+	"Hospedeiro.h"
+	<fstream>
+	<string>
+
+1605483922 /home/arthur/Desktop/poli/EP2/Rede.h
+	<list>
+	<stdexcept>
+	"Hospedeiro.h"
+	"No.h"
+
+1605483922 source:/home/arthur/Desktop/poli/EP2/Navegador.cpp
+	"Navegador.h"
+
+1605485954 source:/home/arthur/Desktop/poli/EP2/No.cpp
+	"No.h"
+
+1605483922 source:/home/arthur/Desktop/poli/EP2/PersistenciaDeRede.cpp
+	"PersistenciaDeRede.h"
+
+1605483922 source:/home/arthur/Desktop/poli/EP2/Processo.cpp
+	"Processo.h"
+
+1605483922 source:/home/arthur/Desktop/poli/EP2/Rede.cpp
+	"Rede.h"
+
+1605793079 source:/home/arthur/Desktop/poli/EP2/Roteador.cpp
+	"Roteador.h"
+
+1605483922 source:/home/arthur/Desktop/poli/EP2/Segmento.cpp
+	"Segmento.h"
+
+1605483922 source:/home/arthur/Desktop/poli/EP2/TabelaDeRepasse.cpp
+	"TabelaDeRepasse.h"
+
+1605485025 source:/home/arthur/Desktop/poli/EP2/ServidorWeb.cpp
+	"ServidorWeb.h"
 

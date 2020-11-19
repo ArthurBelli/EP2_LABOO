@@ -21,12 +21,12 @@ void Roteador::processar() {
             delete atual;
         } else {
             if (atual->getDestino() == endereco) {
-                cout << "\tRecebido ";
+                cout << "\tRecebido: ";
                 atual->imprimir();
                 delete atual;
             }else {
                 if (tabela->getDestino(atual->getDestino()) != NULL) {
-                    cout << "\tEnviado para " << tabela->getDestino(atual->getDestino())->getEndereco() << " ";
+                    cout << "\tEnviado para " << tabela->getDestino(atual->getDestino())->getEndereco() << ": ";
                     atual->imprimir();
                     tabela->getDestino(atual->getDestino())->receber(atual);
                 }else {

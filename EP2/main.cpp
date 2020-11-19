@@ -123,8 +123,8 @@ void Menu2(Rede* rede, int &tempo, int &opcao) {
     cin >> tempo;
     cout << endl;
     for (int i = 1; i <= tempo; i++) {
-        cout << "Instante " << i << endl;
-        cout << "---" << endl;
+        if (i > 1) cout << endl;
+        cout << "Instante " << i << endl << "---" << endl;
         rede->passarTempo();
     }
     opcao = 0;

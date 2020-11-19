@@ -28,9 +28,7 @@ void No::receber(Datagrama* d) {
     }
 }
 
-void No::imprimir()
-{
+void No::imprimir() {
     cout << "Sou no " << getEndereco() << endl;
     fila->imprimir();
-
 }
