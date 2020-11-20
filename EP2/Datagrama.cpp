@@ -8,7 +8,6 @@ Datagrama::Datagrama(int origem, int destino, int ttl, Segmento* dado) {
 }
 
 Datagrama::~Datagrama() {
-    delete dado;
 }
 
 int Datagrama::getOrigem() {
