@@ -44,7 +44,6 @@ int main() {
         else if (opcao == 2) Menu2(rede, tempo, opcao);
         else if (opcao == 3) Menu3(rede, opcao);
     }
-    //no final tem q excluir tudo as parada que foi declarada com new (lists, vectors, etc)
     return 0;
 }
 
