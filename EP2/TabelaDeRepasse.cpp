@@ -64,11 +64,11 @@ No* TabelaDeRepasse::getDestino(int endereco) {
 }
 
 void TabelaDeRepasse::imprimir() {
-    cout << "Os adjascentes sao: " << endl;
+}
+/*     cout << "Os adjascentes sao: " << endl;
     for (int i=0; i<this->getQuantidadeDeAdjacentes(); i++) {
         cout << "Quantidade de adj: " << this->getQuantidadeDeAdjacentes() << endl;
         cout << this->getAdjacentes()[i]->getEndereco() << " ";
     }
     cout << endl << "O padrao e: ";
-    cout << noPadrao->getEndereco() << endl;
-}
+    cout << noPadrao->getEndereco() << endl; */
