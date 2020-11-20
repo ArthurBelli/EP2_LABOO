@@ -32,6 +32,7 @@ int main() {
     cin >> arquivo;
     try {
         rede = persistencia->carregar(arquivo);
+        /*rede->imprimir();*/ //serve pra ver tudo caso precise testar
     } catch (invalid_argument* e) {
         cout << "Nome de arquivo invalido." << endl;
         opcao = 4;
@@ -44,6 +45,7 @@ int main() {
         else if (opcao == 2) Menu2(rede, tempo, opcao);
         else if (opcao == 3) Menu3(rede, opcao);
     }
+    //no final tem q excluir tudo as parada que foi declarada com new (lists, vectors, etc)
     return 0;
 }
 
@@ -122,9 +124,10 @@ void Menu2(Rede* rede, int &tempo, int &opcao) {
     cin >> tempo;
     cout << endl;
     for (int i = 1; i <= tempo; i++) {
-        if (i > 1) cout << endl;
-        cout << "Instante " << i << endl << "---" << endl;
+        cout << "Instante " << i << endl;
+        cout << "---" << endl;
         rede->passarTempo();
+        cout << endl;
     }
     opcao = 0;
 }

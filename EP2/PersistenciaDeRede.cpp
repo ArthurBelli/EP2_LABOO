@@ -72,13 +72,14 @@ Rede* PersistenciaDeRede::carregar(string arquivo) {
             Roteador* r = dynamic_cast<Roteador*>(rede->getNo(endereco));
             r->getTabela()->setPadrao(rede->getNo(endPadrao));
             leitor >> quantMapeamentos;
+            
             for (j = 0; j < quantMapeamentos; j++) {
                 try {
                     leitor >> destino;
                     leitor >> endAdj;
                     r->getTabela()->mapear(destino, rede->getNo(endAdj));
                 } catch (overflow_error* e) {
-                    cout << "Tabela cheia" << endl;
+                    
                   }
             }
         }

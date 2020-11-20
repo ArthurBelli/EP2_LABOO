@@ -56,14 +56,8 @@ void Rede::imprimir() {
     cout << "nos: " << endl;
     list<No*>::iterator i = nos->begin();
     while (i != nos->end()) {
-        cout << (*i)->getEndereco() << endl;
+        (*i)->imprimir();
         i++;
-    }
-    cout << "hospedeiros: " << endl;
-    list<Hospedeiro*>::iterator j = hospedeiros->begin();
-    while (j != hospedeiros->end()) {
-        cout << (*j)->getEndereco() << endl;
-        j++;
     }
 
 }

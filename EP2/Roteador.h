@@ -10,7 +10,7 @@ class Roteador: public No {
     Roteador(int endereco);
     virtual ~Roteador();
 
-    void processar();
+    virtual void processar();
     virtual TabelaDeRepasse* getTabela();
     virtual void imprimir();
 

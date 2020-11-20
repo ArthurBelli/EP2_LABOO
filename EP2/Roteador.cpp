@@ -21,7 +21,7 @@ void Roteador::processar() {
             delete atual;
         } else {
             if (atual->getDestino() == endereco) {
-                cout << "\tRecebido: ";
+                cout << "\tRecebido ";
                 atual->imprimir();
                 delete atual;
             }else {
@@ -46,4 +46,8 @@ TabelaDeRepasse* Roteador::getTabela() {
     return tabela;
 }
 
-void Roteador::imprimir() {}
+void Roteador::imprimir() {
+    cout << "Sou o roteador: " << this->getEndereco() <<  endl;
+    cout << "minha tabela: " << endl;
+    tabela->imprimir();
+}

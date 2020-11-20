@@ -21,8 +21,8 @@ void TabelaDeRepasse::mapear(int endereco, No* adjacente) {
     int i = 0;
     while (vetNo[i] != NULL && vetEnd[i] != 0) {
         i++;
-        if (vetNo[i] == adjacente) { //substitui vetor que ja esta na tabela
-            vetEnd[i] = endereco;
+        if (vetEnd[i] == endereco) { //substitui vetor que ja esta na tabela
+            vetNo[i] = adjacente;
             return;
         }
         if (i == TabelaDeRepasse::MAXIMO_TABELA) throw overflow_error("Erro: Tabela cheia");
@@ -66,8 +66,9 @@ No* TabelaDeRepasse::getDestino(int endereco) {
 void TabelaDeRepasse::imprimir() {
     cout << "Os adjascentes sao: " << endl;
     for (int i=0; i<this->getQuantidadeDeAdjacentes(); i++) {
-        cout << this->getAdjacentes()[i]->getEndereco() << endl;
+        cout << "Quantidade de adj: " << this->getQuantidadeDeAdjacentes() << endl;
+        cout << this->getAdjacentes()[i]->getEndereco() << " ";
     }
-    cout << "O padrao e: " << endl;
+    cout << endl << "O padrao e: ";
     cout << noPadrao->getEndereco() << endl;
 }

@@ -52,6 +52,7 @@ void Hospedeiro::processar() {
         }
         delete atual;
     } catch (underflow_error *e) {
+        //cout << "\tFila vazia em " << this->getEndereco() << endl;
         delete e;
     }
 }
