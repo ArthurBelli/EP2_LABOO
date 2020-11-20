@@ -14,10 +14,10 @@ class No {
     virtual int getEndereco();
     virtual void processar() = 0;
     virtual void receber(Datagrama* d);
+    static const int TAMANHO_FILA;
 
     virtual void imprimir() = 0;
  protected:
-    static const int TAMANHO_FILA;
     int endereco;
     Fila* fila;
 };
