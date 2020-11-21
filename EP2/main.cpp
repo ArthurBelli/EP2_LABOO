@@ -127,7 +127,7 @@ void Menu2(Rede* rede, int &tempo, int &opcao) {
         cout << "Instante " << i << endl;
         cout << "---" << endl;
         rede->passarTempo();
-        cout << endl;
+        if (i < tempo) cout << endl;
     }
     opcao = 0;
 }

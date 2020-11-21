@@ -17,6 +17,7 @@ class No {
     static const int TAMANHO_FILA;
 
     virtual void imprimir() = 0;
+
  protected:
     int endereco;
     Fila* fila;

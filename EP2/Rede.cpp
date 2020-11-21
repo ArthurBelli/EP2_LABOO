@@ -59,5 +59,4 @@ void Rede::imprimir() {
         (*i)->imprimir();
         i++;
     }
-
 }

@@ -34,12 +34,4 @@ bool Fila::isEmpty() {
     return (inicio == fim); //condicao de fila cheia para a solucao adotada
 }
 
-void Fila::imprimir() {
-    cout << "Fila: " << endl;
-    cout << "Comeco: " << inicio << endl;
-    cout << "Fim: " << fim << endl;
-    for (int i=inicio; i!=fim; i++) {
-        cout << vetFila[i]->getDado()->getDado();
-        cout << " ";
-    }
-}
+void Fila::imprimir() {}

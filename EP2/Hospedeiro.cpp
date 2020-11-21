@@ -29,7 +29,7 @@ void Hospedeiro::adicionarNavegador(int porta) {
     Navegador* n = new Navegador(this->endereco, porta, this->gateway);
     if (!processos->empty()) {
         if (this->getProcesso(porta)) {
-            throw logic_error("Porta já contem processo.");
+            throw logic_error("Porta ja contem processo.");
             return;
         }
     }
@@ -72,12 +72,4 @@ vector<Processo*>* Hospedeiro::getProcessos() {
     else return processos;
 }
 
-void Hospedeiro::imprimir() {
-    cout << "Sou o hospedeiro " << this->getEndereco() << endl;
-    cout << "meus processos: " << endl;
-    vector<Processo*>::iterator i = processos->begin();
-    while (i != processos->end()) {
-        cout << (*i)->getPorta() << endl;
-        i++;
-    }
-}
+void Hospedeiro::imprimir() {}

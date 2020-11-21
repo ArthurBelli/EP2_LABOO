@@ -37,7 +37,6 @@ void Roteador::processar() {
             }
         }
     } catch (underflow_error *e) {
-        //cout << "\tFila vazia em " << this->getEndereco() << endl;
         delete e;
     }
 }
@@ -46,8 +45,4 @@ TabelaDeRepasse* Roteador::getTabela() {
     return tabela;
 }
 
-void Roteador::imprimir() {
-    cout << "Sou o roteador: " << this->getEndereco() <<  endl;
-    cout << "minha tabela: " << endl;
-    tabela->imprimir();
-}
+void Roteador::imprimir() {}

@@ -20,6 +20,4 @@ string Segmento::getDado() {
     return dado;
 }
 
-void Segmento::imprimir() {
-    cout << "oi sou segmento" << endl;
-}
+void Segmento::imprimir() {}

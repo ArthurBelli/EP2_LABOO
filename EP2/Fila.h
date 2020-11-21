@@ -15,6 +15,7 @@ class Fila {
     virtual bool isEmpty();
 
     virtual void imprimir();
+
  private:
     int inicio, fim, tamanho, quantidade;
     Datagrama** vetFila;

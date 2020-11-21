@@ -15,6 +15,7 @@ class Processo {
     static int getTtlPadrao();
 
     virtual void imprimir();
+
  protected:
     int endereco;
     int porta;

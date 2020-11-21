@@ -26,7 +26,4 @@ int Processo::getTtlPadrao() {
     return Processo::ttlPadrao;
 }
 
-void Processo::imprimir() {
-    cout << "meu ttl padrao e " << Processo::ttlPadrao;
-
-}
+void Processo::imprimir() {}
