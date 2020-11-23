@@ -51,7 +51,7 @@ int main() {
 
 void Menu0(int &opcao) {
     cout << endl << "Simulador de Rede" << endl << "---" << endl << "1) Usar um navegador" << endl
-    << "2) Passar tempo" << endl << "3) Alterar TTL" << endl << "4) Sair" << endl << "Esolha uma opcao: ";
+    << "2) Passar tempo" << endl << "3) Alterar TTL" << endl << "4) Sair" << endl << "Escolha uma opcao: ";
     cin >> opcao;
     cout << endl;
 }
@@ -78,7 +78,7 @@ void Menu1(Rede* rede, int &opcao) {
             }
             else {
                 s = dynamic_cast<ServidorWeb*>(*j);
-                cout << "\tServidor Web " << s->getPorta() << endl;
+                cout << "\tServidorWeb " << s->getPorta() << endl;
             }
             j++;
         }

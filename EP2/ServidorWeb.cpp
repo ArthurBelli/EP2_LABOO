@@ -16,6 +16,6 @@ void ServidorWeb::receber(int origem, Segmento* mensagem) {
         Datagrama* responseDat = new Datagrama(this->endereco, origem, getTtlPadrao(), responseSeg);
         gateway->receber(responseDat);
         cout << "ServidorWeb " << this->getPorta() << endl;
-        cout << "\tDevolvendo mensagem para " << origem << ":" << mensagem->getPortaDeOrigem() << endl;
+        cout << "\tDevolvendo mensagem para: " << origem << ":" << mensagem->getPortaDeOrigem() << endl;
     }
 }
